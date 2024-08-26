@@ -1,4 +1,4 @@
-# 🐍 Python Repository
+# 🧑‍💻 Python Repository
 
 Welcome to the **Python** repository! This is a continuously evolving collection of Python programs and projects, where I regularly add new code as I explore different concepts in the Python programming language.
 
