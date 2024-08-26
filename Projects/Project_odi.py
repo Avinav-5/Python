@@ -1,7 +1,7 @@
 # Function to load data from CSV file
-def load(file):
+def load_data_from_csv(file_path):
     matches = []
-    with open(file, 'r') as file:
+    with open(file_path, 'r') as file:
         lines = file.readlines()
         headers = lines[0].strip().split(',')
         
@@ -60,21 +60,34 @@ def analyze_matches(matches):
     most_player_of_match = max(player_of_match_count, key=player_of_match_count.get)
     total_awards = player_of_match_count[most_player_of_match]
 
+    print("Overall data of total matches\n")
     print(f"Total Matches: {total_matches}")
     print(f"Wins: {wins}, Win Percentage: {win_percentage:.2f}%")
     print(f"Losses: {losses}, Loss Percentage: {loss_percentage:.2f}%")
     print(f"Tied: {ties}, Tie Percentage: {tie_percentage:.2f}%")
     print(f"Total Runs Scored: {total_runs}")
     print(f"Total Wickets Taken: {total_wickets}")
-    print(f"Most 'Player of the Match' Awards: {most_player_of_match} with {total_awards} awards")
+    print(f"Most 'Player of the Match' Awards: {most_player_of_match} with {total_awards} awards\n")
 
+# Function to analyze a single match
+def analyze_single_match(match):
+    scorer = match['runs_scored']
+    wicket_taker = match['wickets_taken']
+    player_of_match = match['player_of_match']
+    
+    print("Data of single match\n")
+    print(f"Runs Scored in Match: {scorer}")
+    print(f"Wickets Taken in Match: {wicket_taker}")
+    print(f"Player of the Match: {player_of_match}")
 
 # Example usage:
-file = 'C:\\Users\\hp\\Desktop\\PythonPractical\\Project_odi.csv' 
+file_path = '..\\Project_odi.csv'  # Ensure this path is correct
 
 # Load the dataset
-matches = load(file)
+matches = load_data_from_csv(file_path)
 
 # Perform overall analysis
 analyze_matches(matches)
 
+# Perform analysis on a specific match (example: first match)
+analyze_single_match(matches[0])  # Replace `0` with the index of the match you want to analyze

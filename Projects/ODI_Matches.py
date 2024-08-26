@@ -1,4 +1,4 @@
-file_path = 'Project_odi.csv'  
+file_path = '..\\Project_odi.csv'  
 
 total_matches = 0
 wins = 0
